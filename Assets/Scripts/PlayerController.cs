@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
     float restoreTimeSpeed;
     [Space(5)]
 
-
+  
 
     [Header("Recoil Settings:")]
     [SerializeField] private int recoilXSteps = 5; //how many FixedUpdates() the player recoils horizontally for
@@ -118,9 +119,12 @@ public class PlayerController : MonoBehaviour
     float castOrHealthtimer;
     [Space(5)]
 
+    [Header("Camera Stuff")]
+    [SerializeField] private float playerFallSpeedThreshold = -10;
+
     [HideInInspector] public PlayerStateList pState;
+    [HideInInspector] public Rigidbody2D rb;
     private Animator anim;
-    private Rigidbody2D rb;
     private SpriteRenderer sr;
 
     //Input Variables
@@ -177,6 +181,7 @@ public class PlayerController : MonoBehaviour
 
         GetInputs();
         UpdateJumpVariables();
+        UpdateCameraYDampForPlayerFall();
         RestoreTimeScale();
 
         if (pState.dashing) return;
@@ -240,6 +245,22 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(walkSpeed * xAxis, rb.velocity.y);
         anim.SetBool("Walking", rb.velocity.x != 0 && Grounded());
+    }
+
+    void UpdateCameraYDampForPlayerFall() 
+    {
+        //if falling past a certain speed threshold
+        if(rb.velocity.y < playerFallSpeedThreshold && !CameraManager.Instance.isLerpingYDamping && !CameraManager.Instance.hasLerpedYDamping)
+        {
+            StartCoroutine(CameraManager.Instance.LerpYDamping(true));
+        }
+        //if standing still or moving up
+        if(rb.velocity.y >= 0 && !CameraManager.Instance.isLerpingYDamping && CameraManager.Instance.hasLerpedYDamping)
+        {
+            //reset camera function
+            CameraManager.Instance.hasLerpedYDamping = false;
+            StartCoroutine(CameraManager.Instance.LerpYDamping(false));
+        }
     }
 
     void StartDash()
