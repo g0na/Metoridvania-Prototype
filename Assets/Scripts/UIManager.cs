@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
             Instance = this;
         }
         DontDestroyOnLoad(gameObject);
+        sceneFader = GetComponentInChildren<SceneFader>();
     }
 
     public SceneFader sceneFader;
