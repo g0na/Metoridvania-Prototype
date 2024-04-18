@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7905869318711769933}
-  - component: {fileID: 3316825828261793452}
+  - component: {fileID: 780189469923763525}
   m_Layer: 0
   m_Name: Cameras
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 554367366974859533}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3316825828261793452
+--- !u!114 &780189469923763525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,6 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allVirtualCameras:
   - {fileID: 2991883485631218523}
+  panAmount: 0.1
+  panTime: 0.2
+  playerFallSpeedThreshold: -10
+  isLerpingYDamping: 0
+  hasLerpedYDamping: 0
 --- !u!1 &1638917584053976600
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +335,7 @@ Transform:
   m_GameObject: {fileID: 6938601759391093059}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.18999952, y: 3.89, z: -10}
+  m_LocalPosition: {x: 48.6, y: 101.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -521,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 8953550088446275304}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.18999952, y: 3.89, z: -10}
+  m_LocalPosition: {x: 0.18999976, y: 3.89, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

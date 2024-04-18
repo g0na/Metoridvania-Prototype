@@ -38,8 +38,6 @@ public class SceneTransition : MonoBehaviour
             SceneManager.LoadScene(transitionTo);
 
             StartCoroutine(UIManager.Instance.sceneFader.FadeAndLoadScene(SceneFader.FadeDirection.In, transitionTo));
-            Debug.Log(UIManager.Instance);
-            Debug.Log(UIManager.Instance.sceneFader);
         }
     }
 }

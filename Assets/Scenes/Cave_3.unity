@@ -11691,9 +11691,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 658319731}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 585483294247394906, guid: 214bbd1b46ddf4f41b033e43f507c788, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1409801260}
     - targetCorrespondingSourceObject: {fileID: 1638917584053976600, guid: 214bbd1b46ddf4f41b033e43f507c788, type: 3}
       insertIndex: 2
       addedObject: {fileID: 1409801257}
@@ -11756,31 +11753,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7905869318711769933, guid: 214bbd1b46ddf4f41b033e43f507c788, type: 3}
   m_PrefabInstance: {fileID: 1409801255}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1409801259 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 585483294247394906, guid: 214bbd1b46ddf4f41b033e43f507c788, type: 3}
-  m_PrefabInstance: {fileID: 1409801255}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1409801260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1409801259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 868de068e496e4064bea8cd7b64cbb81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allVirtualCameras:
-  - {fileID: 423671181}
-  - {fileID: 699376209}
-  panAmount: 0.1
-  panTime: 0.2
-  playerFallSpeedThreshold: -10
-  isLerpingYDamping: 0
-  hasLerpedYDamping: 0
 --- !u!114 &1409801261
 MonoBehaviour:
   m_ObjectHideFlags: 0

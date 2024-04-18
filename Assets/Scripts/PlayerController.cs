@@ -181,12 +181,13 @@ public class PlayerController : MonoBehaviour
 
         GetInputs();
         UpdateJumpVariables();
-        UpdateCameraYDampForPlayerFall();
+        
         RestoreTimeScale();
 
         if (pState.dashing) return;
         Flip();
         Move();
+        UpdateCameraYDampForPlayerFall();
         Jump();
         StartDash();
         Attack();
@@ -249,14 +250,13 @@ public class PlayerController : MonoBehaviour
 
     void UpdateCameraYDampForPlayerFall() 
     {
-        print(CameraManager.Instance);
         //if falling past a certain speed threshold
-        if(/*rb.velocity.y*/ 0 < playerFallSpeedThreshold && !CameraManager.Instance.isLerpingYDamping && !CameraManager.Instance.hasLerpedYDamping)
+        if(rb.velocity.y < playerFallSpeedThreshold && !CameraManager.Instance.isLerpingYDamping && !CameraManager.Instance.hasLerpedYDamping)
         {
             StartCoroutine(CameraManager.Instance.LerpYDamping(true));
         }
         //if standing still or moving up
-        if(/*rb.velocity.y*/ 1 >= 0 && !CameraManager.Instance.isLerpingYDamping && CameraManager.Instance.hasLerpedYDamping)
+        if(rb.velocity.y >= 0 && !CameraManager.Instance.isLerpingYDamping && CameraManager.Instance.hasLerpedYDamping)
         {
             //reset camera function
             CameraManager.Instance.hasLerpedYDamping = false;
