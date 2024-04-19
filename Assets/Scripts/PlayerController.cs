@@ -181,8 +181,8 @@ public class PlayerController : MonoBehaviour
 
         GetInputs();
         UpdateJumpVariables();
+        UpdateCameraYDampForPlayerFall();
         
-        RestoreTimeScale();
 
         if (pState.dashing) return;
         Flip();
@@ -191,10 +191,11 @@ public class PlayerController : MonoBehaviour
         Jump();
         StartDash();
         Attack();
+        RestoreTimeScale();
         FlashWhileInvincible();
         Heal();
         CastSpell();
-        UpdateCameraYDampForPlayerFall();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D _other) //for up and down cast spell
