@@ -187,13 +187,14 @@ public class PlayerController : MonoBehaviour
         if (pState.dashing) return;
         Flip();
         Move();
-        UpdateCameraYDampForPlayerFall();
+        
         Jump();
         StartDash();
         Attack();
         FlashWhileInvincible();
         Heal();
         CastSpell();
+        UpdateCameraYDampForPlayerFall();
     }
 
     private void OnTriggerEnter2D(Collider2D _other) //for up and down cast spell
