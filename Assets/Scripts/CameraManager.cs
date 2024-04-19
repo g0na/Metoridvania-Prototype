@@ -33,7 +33,7 @@ public class CameraManager : MonoBehaviour
             {
                 currentCamera = allVirtualCameras[i];
 
-                framingTransposer =  currentCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+                framingTransposer = currentCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
             }
         }
 
@@ -50,11 +50,11 @@ public class CameraManager : MonoBehaviour
 
     public void SwapCamera(CinemachineVirtualCamera _newCam) 
     {
-        currentCamera.enabled = false;
+        currentCamera.enabled = true;
 
         currentCamera = _newCam;
 
-        currentCamera.enabled = true;
+        currentCamera.enabled = false;
     }
 
     public IEnumerator LerpYDamping(bool _isPlayerFalling)
